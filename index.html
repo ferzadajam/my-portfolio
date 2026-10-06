@@ -42,7 +42,7 @@ nav a:hover { color: var(--white); border-color: var(--blue); }
 .menu-btn[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
 .menu-btn[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-/* Hero: graph-paper grid with a flight path */
+/* Hero */
 .hero { position: relative; min-height: 100vh; display: flex; align-items: center; overflow: hidden; color: var(--white);
   background:
     linear-gradient(rgba(125,184,255,.07) 1px, transparent 1px) 0 0 / 48px 48px,
@@ -101,8 +101,6 @@ section.block { padding: 6rem 1.5rem; }
 .card p { color: #b6c6dd; font-size: 1rem; flex: 1; }
 .card .status { margin-top: 1.5rem; font-weight: 600; font-size: .95rem; color: var(--sky); }
 .card.featured { border-color: var(--blue); background: linear-gradient(160deg, #17315c, var(--navy-2)); }
-.card.empty { background: transparent; border-style: dashed; }
-.card.empty h3, .card.empty .status { color: #8ea3c2; }
 
 /* Contact */
 .contact { max-width: 640px; margin: 0 auto; text-align: center; background: var(--navy-2); border: 1px solid rgba(125,184,255,.22); border-radius: 16px; padding: 3rem 2rem; box-shadow: 0 12px 32px rgba(0,0,0,.35); }
@@ -218,26 +216,13 @@ footer { background: #050c18; color: #94a7c4; text-align: center; padding: 2rem 
   <!-- Projects -->
   <section id="projects" class="block dark">
     <div class="wrap">
-      <div class="sec-head"><h2>Projects</h2><p>Coursework from CS 4500. More projects will be added here.</p></div>
+      <div class="sec-head"><h2>Projects</h2><p>Featured coursework from CS 4500.</p></div>
       <div class="projects">
         <article class="card featured">
           <span class="tag">CS 4500 Coursework</span>
           <h3>Course Assistant</h3>
           <p>An assistant that uses AI and course information to answer questions based on course materials.</p>
           <span class="status">Completed</span>
-        </article>
-        <!-- Update the two cards below when new projects are ready -->
-        <article class="card empty">
-          <span class="tag">CS 4500 Coursework</span>
-          <h3>Project title</h3>
-          <p>A short description of this project will go here.</p>
-          <span class="status">Coming soon</span>
-        </article>
-        <article class="card empty">
-          <span class="tag">CS 4500 Coursework</span>
-          <h3>Project title</h3>
-          <p>A short description of this project will go here.</p>
-          <span class="status">Coming soon</span>
         </article>
       </div>
     </div>
