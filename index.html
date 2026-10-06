@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ferzad Ajam | IT Student, Mathematics Teacher, Technology Educator</title>
+<meta name="description" content="Portfolio of Ferzad Ajam: Information Technology student at William Paterson University, 8th-grade mathematics teacher, and drone program educator.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #0a1628;
+  --navy-2: #12233d;
+  --blue: #2f7df6;
+  --sky: #7db8ff;
+  --white: #ffffff;
+  --paper: #f3f7fc;
+  --ink: #0f1c30;
+  --muted: #55657d;
+  --line: #d9e2ef;
+  --head: 'Sora', 'Segoe UI', system-ui, sans-serif;
+  --body: 'Source Sans 3', 'Segoe UI', system-ui, sans-serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 4.5rem; }
+body { font-family: var(--body); font-size: 1.0625rem; line-height: 1.65; color: #e6edf7; background: var(--navy); }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--sky); outline-offset: 3px; border-radius: 4px; }
+h1, h2, h3 { font-family: var(--head); line-height: 1.2; }
+
+/* Header */
+header { position: fixed; inset: 0 0 auto 0; z-index: 100; background: rgba(10,22,40,.92); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(125,184,255,.18); }
+.bar { max-width: 1120px; margin: 0 auto; padding: .9rem 1.5rem; display: flex; align-items: center; justify-content: space-between; }
+.brand { font-family: var(--head); font-weight: 600; color: var(--white); text-decoration: none; letter-spacing: .01em; }
+nav ul { display: flex; gap: 2rem; list-style: none; }
+nav a { color: #c5d3e8; text-decoration: none; font-weight: 600; font-size: .98rem; padding: .25rem 0; border-bottom: 2px solid transparent; transition: color .2s, border-color .2s; }
+nav a:hover { color: var(--white); border-color: var(--blue); }
+.menu-btn { display: none; background: none; border: 1px solid rgba(125,184,255,.4); border-radius: 8px; width: 44px; height: 44px; cursor: pointer; flex-direction: column; align-items: center; justify-content: center; gap: 5px; }
+.menu-btn span { width: 20px; height: 2px; background: var(--white); transition: transform .25s, opacity .25s; }
+.menu-btn[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.menu-btn[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+.menu-btn[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* Hero: graph-paper grid with a flight path */
+.hero { position: relative; min-height: 100vh; display: flex; align-items: center; overflow: hidden; color: var(--white);
+  background:
+    linear-gradient(rgba(125,184,255,.07) 1px, transparent 1px) 0 0 / 48px 48px,
+    linear-gradient(90deg, rgba(125,184,255,.07) 1px, transparent 1px) 0 0 / 48px 48px,
+    radial-gradient(ellipse at 80% 20%, #17407f 0%, transparent 55%),
+    var(--navy); }
+.hero-inner { position: relative; z-index: 1; max-width: 1120px; width: 100%; margin: 0 auto; padding: 8rem 1.5rem 5rem; }
+.hero h1 { font-size: clamp(2.6rem, 7vw, 5rem); font-weight: 700; letter-spacing: -.03em; }
+.hero .title { margin-top: 1.25rem; font-family: var(--head); font-size: clamp(1rem, 2.4vw, 1.4rem); font-weight: 500; color: var(--sky); }
+.hero .sub { margin-top: 1rem; max-width: 34rem; color: #b6c6dd; }
+.btns { margin-top: 2.25rem; display: flex; flex-wrap: wrap; gap: 1rem; }
+.btn { display: inline-block; padding: .8rem 1.6rem; border-radius: 8px; font-weight: 600; text-decoration: none; transition: background .2s, transform .2s, border-color .2s; }
+.btn-primary { background: var(--blue); color: var(--white); }
+.btn-primary:hover { background: #4a90ff; transform: translateY(-2px); }
+.btn-ghost { border: 1.5px solid rgba(125,184,255,.5); color: var(--white); }
+.btn-ghost:hover { border-color: var(--sky); background: rgba(125,184,255,.1); }
+.flight { position: absolute; right: 0; bottom: 6%; width: min(70vw, 760px); opacity: .9; pointer-events: none; }
+.flight path { stroke-dasharray: 6 9; animation: dash 30s linear infinite; }
+@keyframes dash { to { stroke-dashoffset: -600; } }
+
+/* Sections */
+section.block { padding: 6rem 1.5rem; }
+.wrap { max-width: 1120px; margin: 0 auto; }
+.light { background: #0a1628; }
+.tint { background: #0e1d33; }
+.dark { background: #07101f; color: var(--white); }
+.sec-head { margin-bottom: 2.75rem; }
+.sec-head h2 { font-size: clamp(1.8rem, 4vw, 2.5rem); letter-spacing: -.02em; }
+.sec-head p { margin-top: .6rem; color: #94a7c4; max-width: 36rem; }
+.dark .sec-head p { color: #b6c6dd; }
+
+/* About */
+.about { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+.about p { max-width: 38rem; color: #b6c6dd; }
+.about p + p { margin-top: 1rem; }
+.facts { list-style: none; border-left: 4px solid var(--blue); background: var(--navy-2); border-radius: 0 12px 12px 0; padding: .5rem 1.5rem; }
+.facts li { padding: 1rem 0; border-bottom: 1px solid rgba(125,184,255,.18); }
+.facts li:last-child { border-bottom: 0; }
+.facts strong { display: block; font-family: var(--head); font-size: 1rem; }
+.facts span { color: #94a7c4; font-size: .98rem; }
+
+/* Skills */
+.skill-groups { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+.skill-group { background: var(--navy-2); border: 1px solid rgba(125,184,255,.22); border-radius: 14px; padding: 1.75rem; }
+.skill-group h3 { font-size: 1.1rem; margin-bottom: 1.1rem; padding-bottom: .9rem; border-bottom: 3px solid var(--blue); width: fit-content; }
+.skill-group ul { list-style: none; display: flex; flex-wrap: wrap; gap: .6rem; }
+.skill-group li { background: #0a1628; border: 1px solid rgba(125,184,255,.25); color: #e6edf7; border-radius: 999px; padding: .4rem 1rem; font-weight: 600; font-size: .98rem; transition: background .2s, color .2s, border-color .2s; }
+.skill-group li:hover { background: var(--blue); border-color: var(--blue); color: var(--white); }
+
+/* Projects */
+.projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 1.5rem; }
+.card { display: flex; flex-direction: column; background: var(--navy-2); border: 1px solid rgba(125,184,255,.22); border-radius: 14px; padding: 2rem; transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease; }
+.card:hover, .card:focus-within { transform: translateY(-10px); border-color: var(--sky); box-shadow: 0 20px 40px rgba(0,0,0,.5), 0 0 28px rgba(47,125,246,.35); }
+.tag { align-self: flex-start; background: rgba(47,125,246,.2); color: var(--sky); font-size: .88rem; font-weight: 600; padding: .25rem .8rem; border-radius: 999px; margin-bottom: 1.1rem; }
+.card h3 { font-size: 1.3rem; margin-bottom: .8rem; }
+.card p { color: #b6c6dd; font-size: 1rem; flex: 1; }
+.card .status { margin-top: 1.5rem; font-weight: 600; font-size: .95rem; color: var(--sky); }
+.card.featured { border-color: var(--blue); background: linear-gradient(160deg, #17315c, var(--navy-2)); }
+.card.empty { background: transparent; border-style: dashed; }
+.card.empty h3, .card.empty .status { color: #8ea3c2; }
+
+/* Contact */
+.contact { max-width: 640px; margin: 0 auto; text-align: center; background: var(--navy-2); border: 1px solid rgba(125,184,255,.22); border-radius: 16px; padding: 3rem 2rem; box-shadow: 0 12px 32px rgba(0,0,0,.35); }
+.contact p { color: #b6c6dd; margin-bottom: 1.5rem; }
+.email { display: inline-block; font-family: var(--head); font-weight: 600; font-size: clamp(1rem, 3.6vw, 1.3rem); color: var(--white); background: var(--blue); padding: .9rem 1.6rem; border-radius: 8px; text-decoration: none; word-break: break-all; transition: background .2s; }
+.email:hover { background: #1f66d8; }
+
+footer { background: #050c18; color: #94a7c4; text-align: center; padding: 2rem 1.5rem; font-size: .95rem; }
+
+/* Responsive */
+@media (max-width: 900px) {
+  .about { grid-template-columns: 1fr; gap: 2rem; }
+  .skill-groups { grid-template-columns: 1fr; }
+}
+@media (max-width: 720px) {
+  .menu-btn { display: flex; }
+  nav { position: absolute; top: 100%; left: 0; right: 0; background: var(--navy); border-bottom: 1px solid rgba(125,184,255,.18); display: none; }
+  nav.open { display: block; }
+  nav ul { flex-direction: column; gap: 0; padding: .5rem 1.5rem 1rem; }
+  nav a { display: block; padding: .8rem 0; border-bottom: 1px solid rgba(125,184,255,.12); }
+  section.block { padding: 4rem 1.25rem; }
+  .flight { opacity: .5; width: 120vw; bottom: 2%; }
+  .hero-inner { padding-top: 7rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .flight path { animation: none; }
+  * { transition: none !important; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="bar">
+    <a href="#top" class="brand">Ferzad Ajam</a>
+    <button class="menu-btn" id="menuBtn" aria-label="Toggle menu" aria-expanded="false" aria-controls="siteNav">
+      <span></span><span></span><span></span>
+    </button>
+    <nav id="siteNav" aria-label="Main">
+      <ul>
+        <li><a href="#about">About Me</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <!-- Hero -->
+  <section class="hero">
+    <svg class="flight" viewBox="0 0 760 320" fill="none" aria-hidden="true">
+      <path d="M0 290 C 120 290, 160 120, 280 140 S 440 280, 540 160 S 680 40, 760 60" stroke="#7db8ff" stroke-width="2.5" stroke-linecap="round"/>
+      <g transform="translate(735 48)" stroke="#fff" stroke-width="2" stroke-linecap="round">
+        <circle cx="0" cy="0" r="5" fill="#2f7df6" stroke="none"/>
+        <path d="M-9 -9 L-3 -3 M9 -9 L3 -3 M-9 9 L-3 3 M9 9 L3 3"/>
+        <circle cx="-11" cy="-11" r="4"/><circle cx="11" cy="-11" r="4"/><circle cx="-11" cy="11" r="4"/><circle cx="11" cy="11" r="4"/>
+      </g>
+    </svg>
+    <div class="hero-inner">
+      <h1>Ferzad Ajam</h1>
+      <p class="title">IT Student | Mathematics Teacher | Technology Educator</p>
+      <p class="sub">Bringing classroom experience and information technology training together to make technology easier to learn.</p>
+      <div class="btns">
+        <a href="#projects" class="btn btn-primary">View my work</a>
+        <a href="#contact" class="btn btn-ghost">Get in touch</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="block light">
+    <div class="wrap">
+      <div class="sec-head"><h2>About Me</h2></div>
+      <div class="about">
+        <div>
+          <p>I am an Information Technology student at William Paterson University (WPU), expecting to graduate in March 2027. Alongside my studies, I teach 8th-grade mathematics at JATS Middle School.</p>
+          <p>I also work in an after-school drone program, where I teach middle school students about drone parts, how drones work, how to fly them safely, and how to program them.</p>
+          <p>I am interested in combining my experience in education with my knowledge of information technology to help people learn and use technology with confidence.</p>
+        </div>
+        <ul class="facts">
+          <li><strong>Information Technology</strong><span>William Paterson University, expected graduation March 2027</span></li>
+          <li><strong>8th-Grade Mathematics Teacher</strong><span>JATS Middle School</span></li>
+          <li><strong>After-School Drone Program Educator</strong><span>Drone parts, operation, safe flight, and programming</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills" class="block tint">
+    <div class="wrap">
+      <div class="sec-head"><h2>Skills</h2><p>Technical knowledge from my IT studies, and teaching skills from the classroom.</p></div>
+      <div class="skill-groups">
+        <div class="skill-group">
+          <h3>Technology</h3>
+          <ul><li>Python</li><li>Java</li><li>Computer Networking</li><li>Problem Solving</li></ul>
+        </div>
+        <div class="skill-group">
+          <h3>Education</h3>
+          <ul><li>Mathematics Education</li><li>Classroom Management</li><li>Technology Integration</li><li>Communication</li></ul>
+        </div>
+        <div class="skill-group">
+          <h3>Drones</h3>
+          <ul><li>Drone Technology</li><li>Drone Programming</li></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" class="block dark">
+    <div class="wrap">
+      <div class="sec-head"><h2>Projects</h2><p>Coursework from CS 4500. More projects will be added here.</p></div>
+      <div class="projects">
+        <article class="card featured">
+          <span class="tag">CS 4500 Coursework</span>
+          <h3>Course Assistant</h3>
+          <p>An assistant that uses AI and course information to answer questions based on course materials.</p>
+          <span class="status">Completed</span>
+        </article>
+        <!-- Update the two cards below when new projects are ready -->
+        <article class="card empty">
+          <span class="tag">CS 4500 Coursework</span>
+          <h3>Project title</h3>
+          <p>A short description of this project will go here.</p>
+          <span class="status">Coming soon</span>
+        </article>
+        <article class="card empty">
+          <span class="tag">CS 4500 Coursework</span>
+          <h3>Project title</h3>
+          <p>A short description of this project will go here.</p>
+          <span class="status">Coming soon</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="block tint">
+    <div class="wrap">
+      <div class="sec-head" style="text-align:center"><h2>Contact</h2></div>
+      <div class="contact">
+        <p>For questions, collaboration, or networking, email me at my student address.</p>
+        <a class="email" href="mailto:fajam@studnt.wpunj.edu">fajam@studnt.wpunj.edu</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; <span id="year">2026</span> Ferzad Ajam</p>
+</footer>
+
+<script>
+  const btn = document.getElementById('menuBtn');
+  const nav = document.getElementById('siteNav');
+  function setMenu(open) {
+    nav.classList.toggle('open', open);
+    btn.setAttribute('aria-expanded', String(open));
+  }
+  btn.addEventListener('click', () => setMenu(!nav.classList.contains('open')));
+  nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') setMenu(false); });
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
